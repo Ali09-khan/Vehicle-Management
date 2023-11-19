@@ -63,7 +63,7 @@
         <h1>Vehicle Management</h1>
     </header>
 
-    <section>
+    <section id="loginPage">
         <h2>Login</h2>
         <form id="loginForm">
             <label for="username">Username:</label>
@@ -72,11 +72,12 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
-            <button type="submit">Login</button>
+            <button type="button" onclick="showRegisterPage()">Register</button>
+            <button type="button" onclick="showAddVehiclePage()">Next</button>
         </form>
     </section>
 
-    <section>
+    <section id="registerPage" style="display: none;">
         <h2>Register New User</h2>
         <form id="registerForm">
             <label for="newUsername">Username:</label>
@@ -85,11 +86,12 @@
             <label for="newPassword">Password:</label>
             <input type="password" id="newPassword" name="newPassword" required>
 
-            <button type="submit">Register</button>
+            <button type="button" onclick="showLoginPage()">Login</button>
+            <button type="button" onclick="showAddVehiclePage()">Next</button>
         </form>
     </section>
 
-    <section>
+    <section id="addVehiclePage" style="display: none;">
         <h2>Add Vehicle</h2>
         <form id="addVehicleForm">
             <label for="vehicleName">Vehicle Name:</label>
@@ -97,11 +99,12 @@
 
             <!-- Add more fields as needed for vehicle details -->
 
-            <button type="submit">Add Vehicle</button>
+            <button type="button" onclick="showLoginPage()">Login</button>
+            <button type="button" onclick="showAddTaskPage()">Next</button>
         </form>
     </section>
 
-    <section>
+    <section id="addTaskPage" style="display: none;">
         <h2>Add Task</h2>
         <form id="addTaskForm">
             <label for="taskName">Task Name:</label>
@@ -109,8 +112,32 @@
 
             <!-- Add more fields as needed for task details -->
 
-            <button type="submit">Add Task</button>
+            <button type="button" onclick="showAddVehiclePage()">Previous</button>
+            <button type="submit">Finish</button>
         </form>
     </section>
+
+    <script>
+        function showRegisterPage() {
+            document.getElementById("loginPage").style.display = "none";
+            document.getElementById("registerPage").style.display = "block";
+        }
+
+        function showLoginPage() {
+            document.getElementById("registerPage").style.display = "none";
+            document.getElementById("loginPage").style.display = "block";
+        }
+
+        function showAddVehiclePage() {
+            document.getElementById("loginPage").style.display = "none";
+            document.getElementById("registerPage").style.display = "none";
+            document.getElementById("addVehiclePage").style.display = "block";
+        }
+
+        function showAddTaskPage() {
+            document.getElementById("addVehiclePage").style.display = "none";
+            document.getElementById("addTaskPage").style.display = "block";
+        }
+    </script>
 </body>
 </html>
