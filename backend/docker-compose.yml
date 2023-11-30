@@ -1,0 +1,25 @@
+version: "3.10"
+services:
+  db:
+    image: postgres:15
+    container_name: psql_db_app
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - .env-non-dev
+  
+  app:
+    build: 
+      context: .
+    env_file:
+      - .env-non-dev
+    container_name: backend_app
+    command: ['/app/docker/app.sh']
+    ports:
+      - "9999:8000"
+    depends_on:
+      - db
+
+
+volumes:
+  pgdata:
