@@ -1,0 +1,13 @@
+version: '3.8'
+
+networks:
+  default: {}
+
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - 8080:80
