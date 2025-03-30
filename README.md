@@ -1,2 +1,2 @@
-# Project_Swe
-This is a project for class Software Engineering Lab-Section 2
+# Project Vehicle Management
+This is a vehicle management app
